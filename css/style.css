@@ -1,0 +1,52 @@
+:root {
+    --darkBlue: #0A3871;
+    --backgroundColor: #F3F5FC;
+    --white: #ffffff;
+}
+body {
+    background: var(--backgroundColor);
+    width: 100vw;
+    height: 100vh;
+}
+#aluraLogo{
+    position: absolute;
+    width: 31px;
+    height: 48px;
+    margin: 40px 84px;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnDesign {
+    width: 250px;
+    height: 70px;
+    border-radius: 12px;
+    padding: 24px;
+    gap: 8px;
+    margin: 15px;
+}
+#startNewGame{
+    border: none;
+    background: var(--darkBlue);
+    color: var(--white);
+    transition: 0.5s ease-in-out;
+}
+#startNewGame:hover{
+    transform: scale(1.03);
+    background: #0d4891;
+}
+#addWord{
+    border: 1px solid var(--darkBlue);
+    color: var(--darkBlue);
+    transition: 0.5s ease-in-out;
+}
+#addWord:hover{
+    transform: scale(1.03);
+    background: #edf5ff
+}
