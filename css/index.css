@@ -1,0 +1,142 @@
+:root {
+    --darkBlue: #0A3871;
+    --backgroundColor: #F3F5FC;
+    --white: #ffffff;
+}
+body {
+    background: var(--backgroundColor);
+    width: 100vw;
+    height: 100vh;
+}
+#aluraLogo{
+    position: absolute;
+    width: 31px;
+    height: 48px;
+    margin: 40px 84px;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+#firstPage {
+    width: 100vw;
+    height: 100vh;
+}
+
+.btnDesign {
+    width: 250px;
+    height: 70px;
+    border-radius: 12px;
+    padding: 24px;
+    gap: 8px;
+    margin: 15px;
+}
+#startNewGame{
+    border: none;
+    background: var(--darkBlue);
+    color: var(--white);
+    transition: 0.5s ease-in-out;
+}
+#startNewGame:hover{
+    transform: scale(1.03);
+    background: #0d4891;
+}
+#addWord{
+    border: 1px solid var(--darkBlue);
+    color: var(--darkBlue);
+    transition: 0.5s ease-in-out;
+}
+#addWord:hover{
+    transform: scale(1.03);
+    background: #edf5ff
+}
+#quant {
+    color: #0A3871;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5em;
+}
+.hidden {
+    display: none;
+}
+
+/* Second Page (GAME PAGE) */
+
+#gamePage{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+#gameArea {
+    display: flex;
+    height: 30%;
+    
+}
+.btnGamePage {
+    display: flex;
+    width: 180px;
+    height: 20px;
+    border-radius: 12px;
+    padding: 24px;
+    gap: 8px;
+    margin: 15px;
+    justify-content: center;
+    align-items: center;
+}
+#gameDiv {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#btnArea {
+    height: 20%;
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: center;
+}
+#newGameAgain{
+    border: none;
+    background: var(--darkBlue);
+    color: var(--white);
+    transition: 0.5s ease-in-out;
+}
+#newGameAgain:hover{
+    transform: scale(1.03);
+    background: #0d4891;
+}
+#giveUp{
+    border: 1px solid var(--darkBlue);
+    color: var(--darkBlue);
+    transition: 0.5s ease-in-out;
+}
+#giveUp:hover{
+    transform: scale(1.03);
+    background: #edf5ff
+}
+#error {
+    color: #072850;
+    font-size: 1.2em;
+}
+#secretWord {
+    color: var(--darkBlue);
+    font-weight: bold;
+    font-size: 2.4em;
+}
+#dica {
+    color: var(--darkBlue);
+    font-size: 1.2em;
+    font-weight: bold;
+}

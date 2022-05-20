@@ -6,14 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da Forca</title>
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-        <img id="aluraLogo" src="./assets/alura-logo.png" alt="Logo da Alura" srcset="">
+    <img id="aluraLogo" src="./assets/alura-logo.png" alt="Logo da Alura" srcset="">
+    <section id="firstPage">
     <main id="btn">
+        <span id="quant"></span>
         <button class="btnDesign" id="startNewGame"> Começar a jogar</button>
         <button class="btnDesign" id="addWord">Adicionar uma nova palavra</button>
     </main>
+    </section>
+    
+    <section id="gamePage">
+        <div id="gameDiv">
+            <div id="gameArea"></div>
+                <span id="secretWord">Teste</span>
+                <span id="dica">Dica: TESTE</span>
+                <span id="error">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</span>
+            </div>
+            <div id="btnArea">
+                <button id="newGameAgain" class="btnGamePage">Novo jogo</button>
+                <button id="giveUp" class="btnGamePage">Desistir</button>
+            </div>
+        </div>
+    </section>
 </body>
 <script src="./script/words.js"></script>
+<script src="./script/showPage.js"></script>
 </html>
