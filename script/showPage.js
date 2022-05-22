@@ -3,6 +3,7 @@ const gamePage = document.getElementById('gamePage');
 firstPage.style.display = 'flex';
 gamePage.style.display = 'none';
 
+
 var btnNewGame = document.getElementById("startNewGame");
 var btnGiveUp = document.getElementById("giveUp");
 
@@ -20,6 +21,7 @@ function showFirstPage() {
 
 
 function showGamePage(){
+    
     firstPage.style.display = 'none';
     gamePage.style.display = 'flex';
 

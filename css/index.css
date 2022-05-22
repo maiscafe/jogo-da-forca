@@ -7,6 +7,7 @@ body {
     background: var(--backgroundColor);
     width: 100vw;
     height: 100vh;
+    font-family: 'Roboto', sans-serif;
 }
 #aluraLogo{
     position: absolute;
@@ -61,7 +62,7 @@ main {
     line-height: 1.5em;
 }
 .hidden {
-    display: none;
+    opacity: 0;
 }
 
 /* Second Page (GAME PAGE) */
