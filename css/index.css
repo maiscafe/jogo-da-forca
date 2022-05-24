@@ -92,13 +92,14 @@ main {
 }
 #gameDiv {
     width: 100%;
-    height: 40%;
+    height: 100%;
     display: flex;
     align-items: center;
-    margin: 20px 0px;
+    margin: 0 auto;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-end;
+    align-content: center;
 }
 
 #btnArea {
@@ -127,17 +128,27 @@ main {
     transform: scale(1.03);
     background: #edf5ff
 }
-#error {
-    color: #072850;
-    font-size: 1.2em;
-}
 #secretWord {
     color: var(--darkBlue);
     font-weight: bold;
     font-size: 2.4em;
+    text-transform: uppercase;
+    margin: 20px 0px;
 }
 #dica {
+    margin: 10px 0px;
     color: var(--darkBlue);
     font-size: 1.2em;
     font-weight: bold;
+}
+#errorDiv {
+    word-break: break-word;
+    width: 50%;
+    text-align: center;
+}
+#error {
+    width: auto;
+    color: #ff0000;
+    font-size: 1.4em;
+    letter-spacing: 0.5em;
 }

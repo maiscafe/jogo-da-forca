@@ -21,7 +21,7 @@ function showFirstPage() {
 
 
 function showGamePage(){
-    
+    window.addEventListener("keypress", testKey)
     firstPage.style.display = 'none';
     gamePage.style.display = 'flex';
 
