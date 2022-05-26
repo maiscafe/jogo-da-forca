@@ -12,13 +12,14 @@ var keyError = [];
 var key
 var word
 var keyAgain = '';
+var cont = 0
 
 
 var dicaPalavra = document.getElementById("dica");
 var spanWord = document.getElementById("secretWord");
 var wordLines = document.getElementById("wordLines")
 var error = document.getElementById("error");
-var btnTeste = document.getElementById("newGameAgain");
+var btnNewGame = document.getElementById("newGameAgain");
 
 
 
@@ -37,24 +38,27 @@ outros.push("Outros", "água", "fogo", "terra", "internet", "email", "onda", "ca
 
 quantPalavras();
 
-btnTeste.addEventListener("click", selectWord);
+btnNewGame.addEventListener("click", selectWord);
 
 
 
 function selectWord() { /* Seleciona a palavra dentro do array e a dica */
     let dica = Math.floor(Math.random() * words.length);
-    
-    console.log(keyAgain);
+    error.innerHTML = '';
+    keyError = []
+    cont = 0
+    contErro = 0
     word = words[dica];
     dicaPalavra.innerHTML = ('DICA: ' + word[0].toUpperCase());
     let palavra = Math.floor(Math.random() * word.length);
     if (palavra == 0) {
         palavra = Math.floor(Math.random() * word.length);
     }
-    codeWord(word[palavra].toUpperCase());
-    palavraEscolhida = (word[palavra].toUpperCase());
-    error.innerHTML = '';
-    keyAgain = '';
+    palavraUnderline = (word[palavra].toUpperCase())
+    palavraEscolhida = formataPalavra(word[palavra]);
+    codeWord(palavraEscolhida);
+    console.log(palavraUnderline);
+    console.log(palavraEscolhida);
 }
 
 
@@ -71,9 +75,10 @@ function quantPalavras (){ /* Mostra a quantidade de palavras */
 function codeWord(secretWord) { /* transforma a palavra em um array de letras */
     caractere = [];
     underline = [];
+    let wordSpace = ''
     var key = '';
     for (let i = 0; i < secretWord.length; i++){
-        caractere.push(secretWord[i].normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '')).toUpperCase;;
+        wordSpace = caractere.push(secretWord[i].normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '')).toUpperCase;
         underline.push("_ ");
         key += underline[i];
     } 
@@ -85,35 +90,61 @@ function codeWord(secretWord) { /* transforma a palavra em um array de letras */
 
 
 function testKey (event) {
-    keyAgain = event.key.toUpperCase();
-    console.log(keyAgain);
-
-    for (let i = 0; i < palavraEscolhida.length; i++) {
-        if (palavraEscolhida.search(keyAgain) == -1) {
-           if (addErro(keyAgain) == false ) {
-            keyError.push(keyAgain)
-            error.innerHTML += keyAgain
-            console.log(keyError);
-           }
-            break
-        } else if(keyAgain == caractere[i]) {
-            underline[i] = keyAgain;
-            keyError.push(keyAgain)
-            spanWord.innerHTML = underline.join(" ");
-            console.log(underline);
+    key = event.key.toUpperCase();
+    let teste = 0
+    if (keyDuplicated(key) == false ) {
+        for (let i = 0; i < palavraEscolhida.length; i++) {
+            if (key == palavraEscolhida[i] && contador(cont, contErro) == true ) {
+                teste++
+                underline[i] = palavraUnderline[i]
+                spanWord.innerHTML = underline.join(" ");
+                cont++
+            }
         }
+        if (teste == 0 && contador(cont, contErro) == true) {
+            error.innerHTML += key;
+            contErro++
+        }
+    contador(cont, contErro)
+    keyError.push(key)
+    console.log(keyError);
     }
 }
 
-function addErro (keyAgain) {
-    let trueOrFalse = ''
-    for (let i = 0; i <= keyError.length ; i++) {
-        if (keyError[i] !== keyAgain) {
-            
-            trueOrFalse += keyAgain
+
+function keyDuplicated(key) {
+    let teste = false
+    for (let i = 0; i <= keyError.length; i++) {
+        if (keyError[i] == key) {
+            teste = true
         }
     }
-    if (trueOrFalse.length > 0) {
-        return false
+    return teste
+}
+
+function formataPalavra (text) {
+    
+    text = text.toUpperCase();                                                         
+    text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
+    text = text.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
+    text = text.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
+    text = text.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
+    text = text.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
+    text = text.replace(new RegExp('[Ç]','gi'), 'c');
+    text = text.toUpperCase(); 
+    return text;
+
+}
+
+function contador(cont, contErro) {
+    let teste = true
+    if (cont >= palavraEscolhida.length) {
+        dicaPalavra.innerHTML = 'PARABÉNS, VOCÊ ACERTOU!'
+        teste = false
     }
+    if (contErro >=5) {
+        dica.innerHTML = `Você errou! A palavra era ${palavraEscolhida}`
+        teste = false
+    }
+    return teste
 }
