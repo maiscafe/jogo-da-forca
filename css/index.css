@@ -152,3 +152,49 @@ main {
     font-size: 1.4em;
     letter-spacing: 0.5em;
 }
+
+#addWordPage {
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+#newWord {
+    display: flex;
+    width: 30%;
+    height: 25px;
+    border-radius: 6px;
+    border: none;
+    text-align: center;
+}
+#sendWord {
+    border: none;
+    background: var(--darkBlue);
+    color: var(--white);
+    transition: 0.5s ease-in-out;
+}
+
+#sendWord:hover{
+    transform: scale(1.03);
+    background: #0d4891;
+}
+
+#comeBack{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    border: 1px solid var(--darkBlue);
+    color: var(--darkBlue);
+    transition: 0.5s ease-in-out;
+}
+#comeBack:hover{
+    transform: scale(1.03);
+    background: #edf5ff
+}
+#subInput {
+    font-size: 10px;
+    color: #282f36;
+}

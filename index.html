@@ -37,10 +37,35 @@
     </section>
 
     <section id="addWordPage">
-        <input type="text" placeholder="digite sua msg aqui" > 
+        <p>
+            Qual a nova palavra a ser inserida?
+        </p>
+        <input autocomplete="off" target id="newWord" type="text" placeholder="Nova Palavra">
+        <p id="subInput">
+            Não utilize caracteres especiais
+        </p>
+        <p>
+            Em qual categoria ela se encaixa?
+        </p>
+        <div id="newRadio" > 
+            <input type="radio" name="radioDica" id="Objeto">
+            <label for="Objeto">Objeto</label>
+            <input type="radio" name="radioDica" id="Animais">
+            <label for="Animais">Animais</label>
+            <input type="radio" name="radioDica" id="Frutas">
+            <label for="Frutas">Frutas</label>
+            <input type="radio" name="radioDica" id="Cor">
+            <label for="Cor">Cor</label>
+            <input type="radio" name="radioDica" id="Outros" checked>
+            <label for="Outros">Outros</label>
+        </div>
+        <div id="addWordBtn"></div>
+            <button class="btnDesign" id="sendWord">Enviar Palavra</button>
+            <button class="btnDesign" id="comeBack" >Voltar ao Menu</button>
+        </div>
     </section>
 </body>
 <script src="./script/words.js"></script>
 <script src="./script/showPage.js"></script>
-<script src="./script/presskey.js"></script>
+<script src="./script/sendWord.js"></script>
 </html>
