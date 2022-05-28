@@ -79,6 +79,12 @@ main {
     height: 30%;
     
 }
+#canvasArea {
+    display: flex;
+    width: 30%;
+    height: 30%;
+}
+
 .btnGamePage {
     display: flex;
     width: 180px;
